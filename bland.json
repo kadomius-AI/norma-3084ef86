@@ -218,6 +218,9 @@
         "enabled": false,
         "greetingMessage": "Hi there! How can I help you today?",
         "widgetTitle": "Support"
+      },
+      "apiChat": {
+        "enabled": true
       }
     }
   },
