@@ -82,7 +82,7 @@
                 "id": "mylux-intake-callback_number",
                 "key": "callback_number",
                 "type": "string",
-                "value": "Callback phone number confirmed by caller; empty if absent."
+                "value": "Best phone number to reach the person, as confirmed by them; empty if absent."
               },
               {
                 "accurateSpelling": true,
@@ -124,7 +124,7 @@
                 "id": "mylux-intake-seller_priorities",
                 "key": "seller_priorities",
                 "type": "string",
-                "value": "Caller motivation and priorities without invented conclusions."
+                "value": "What matters most to the seller (speed, price, convenience, etc.) in their own words; do not invent."
               },
               {
                 "accurateSpelling": false,
@@ -176,8 +176,44 @@
     "contact": {
       "inboundNumbers": []
     },
+    "initialization": {
+      "enabled": false,
+      "step": {
+        "code": "export default {\n  async fetch(request, env, ctx) {\n    const json = await request.json();\n\n    // Your custom logic here\n    // Variables arrive on the request body, e.g. json[\"customer_id\"]\n    // Return JSON to make values available to later steps\n\n    return Response.json({});\n  }\n}",
+        "name": "Initialization",
+        "settings": {
+          "advanced": {
+            "agentBackchannelLevel": null,
+            "backgroundTrack": "",
+            "blockInterruptions": false,
+            "disableLogging": false,
+            "disableRecording": false,
+            "interruptibility": null,
+            "interruptionThreshold": null,
+            "skipUserResponse": false,
+            "temperature": 0.2
+          },
+          "global": {
+            "description": "",
+            "forwardingNode": "",
+            "isGlobal": false,
+            "label": "",
+            "returnMode": "previous"
+          },
+          "media": [],
+          "tag": null
+        }
+      }
+    },
+    "knowledge": {
+      "kbIds": []
+    },
     "settings": {
+      "agentBackchannelConfig": null,
       "agentBackchannelLevel": null,
+      "apiChat": {
+        "enabled": false
+      },
       "backgroundNoise": "off",
       "blockInterruptions": false,
       "displayName": "Norma",
@@ -188,6 +224,7 @@
       "languages": [
         "english"
       ],
+      "memorySchema": null,
       "messaging": {
         "mode": "reasoning"
       },
